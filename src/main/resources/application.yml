@@ -1,5 +1,6 @@
 server:
     port: 8888
+    shutdown: graceful
     tomcat:
         connection-timeout: 2s
         keep-alive-timeout: 15s
@@ -10,14 +11,14 @@ server:
 spring:
     application:
         name: config-service
+    lifecycle:
+        timeout-per-shutdown-phase: 15s
     cloud:
         config:
             server:
                 git:
-                    uri: https://github.com/hannah23280/config-repo
+                    uri: https://github.com/PolarBookshop/config-repo
                     default-label: main
                     timeout: 5
                     clone-on-start: true
                     force-pull: true
-
-
